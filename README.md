@@ -250,3 +250,101 @@ config include in **.eslintrc.js**
   }
 }
 ```
+
+## Absolute path settings
+
+Add **jsconfig.json** file in the root of project. Add below code in jsconfig.json file :
+
+```
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
+```
+
+A Babel plugin to add a new resolver for your modules when compiling your code using Babel. This plugin allows you to add new "root" directories that contain your modules. It also allows you to setup a custom alias for directories, specific files, or even other npm modules.
+
+```
+yarn add -D babel-plugin-module-resolver babel-plugin-ignite-ignore-reactotron
+```
+
+config include in **babel.config.js**:
+
+```
+const MODULE_RESOLVER = [
+  'module-resolver',
+  {
+    root: ['./src'],
+    extensions: [
+      '.js',
+      '.jsx',
+      '.ios.js',
+      '.ios.jsx',
+      '.android.js',
+      '.android.jsx',
+      '.json'
+    ],
+    alias: {
+      '@': './src'
+    }
+  }
+]
+
+module.exports = {
+  plugins: [MODULE_RESOLVER],
+  presets: ['module:metro-react-native-babel-preset'],
+  env: {
+    production: {
+      plugins: ['ignite-ignore-reactotron', MODULE_RESOLVER]
+    }
+  }
+}
+```
+
+config include in **metro.config.js**
+
+```
+{
+  resolver: {
+      sourceExts: ['jsx', 'js', 'json']
+  }
+}
+```
+
+A babel-plugin-module-resolver resolver for eslint-plugin-import
+
+```
+yarn add -D eslint-import-resolver-babel-module
+```
+
+config include in **.eslintrc.js**
+
+```
+settings: {
+    'import/resolver': {
+      'babel-module': {
+        extensions: [
+          '.js',
+          '.jsx',
+          '.android.js',
+          '.android.jsx',
+          '.ios.js',
+          '.ios.jsx',
+          '.json'
+        ],
+        alias: {
+          map: [['@', './src']]
+        }
+      }
+    }
+  }
+```

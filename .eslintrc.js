@@ -68,7 +68,9 @@ module.exports = {
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
-    'jest/valid-expect': 'error'
+    'jest/valid-expect': 'error',
+    'no-undef': 1,
+    'no-unused-vars': 1
   },
   settings: {
     react: {
@@ -76,6 +78,22 @@ module.exports = {
     },
     jest: {
       version: 26
+    },
+    'import/resolver': {
+      'babel-module': {
+        extensions: [
+          '.js',
+          '.jsx',
+          '.android.js',
+          '.android.jsx',
+          '.ios.js',
+          '.ios.jsx',
+          '.json'
+        ],
+        alias: {
+          map: [['@', './src']]
+        }
+      }
     }
   }
 }
