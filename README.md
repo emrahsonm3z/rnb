@@ -371,3 +371,27 @@ config include in **.svgorc.json**
   "plugins": [{ "removeViewBox": false }]
 }
 ```
+
+## Install pre-commit use husky and lint-staged
+
+```
+yarn add -D husky@4.2.3 lint-staged
+```
+
+config include in **package.json**
+
+```
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged --allow-empty"
+  }
+},
+"lint-staged": {
+  "**/*.{js,jsx}": [
+    "npm run lint:fix"
+  ],
+  "**/*.{js,jsx,json}": [
+    "npm run format"
+  ]
+}
+```
