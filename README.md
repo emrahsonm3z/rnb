@@ -355,6 +355,7 @@ install:
 
 ```
 yarn add @svgr/cli --dev
+yarn add react-native-svg
 ```
 
 add script in **package.json**:
