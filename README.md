@@ -348,3 +348,25 @@ settings: {
     }
   }
 ```
+
+## SVGR
+
+install:
+
+```
+yarn add @svgr/cli --dev
+```
+
+add script in **package.json**:
+
+```
+"svgr": "svgr ./src/assets/icons -d ./src/components/icons --native --svg-props className= --svgo-config .svgorc.json"
+```
+
+config include in **.svgorc.json**
+
+```
+{
+  "plugins": [{ "removeViewBox": false }]
+}
+```
