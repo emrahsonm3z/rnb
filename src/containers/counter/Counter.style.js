@@ -2,13 +2,19 @@ const { StyleSheet } = require('react-native')
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    height: 600,
     justifyContent: 'center',
     paddingHorizontal: 10
   },
+  count: {
+    fontSize: 50
+  },
   countContainer: {
     alignItems: 'center',
-    padding: 10
+    flexGrow: 1,
+    justifyContent: 'center'
   }
 })
 

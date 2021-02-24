@@ -13,12 +13,12 @@ const Counter = () => {
   return (
     <View style={styles.container}>
       <View style={styles.countContainer}>
-        <Text>Count: {count}</Text>
+        <Text style={styles.count}>Count: {count}</Text>
       </View>
       <Button
         onPress={onPress}
         label="Press Here"
-        icon={() => <Send width={24} height={24} color="#FFF" />}
+        icon={<Send width={24} height={24} color="#FFF" />}
       />
     </View>
   )

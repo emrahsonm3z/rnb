@@ -1,19 +1,21 @@
 const { StyleSheet } = require('react-native')
 
 const btnBackground = '#FF0000'
-const textColor = '#FFF'
+const textColor = '#FFFFFF'
 
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: btnBackground,
-    color: textColor,
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'center',
     padding: 10
   },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 10
+  buttonLabel: {
+    color: textColor,
+    fontWeight: 'bold',
+    marginHorizontal: 10
   }
 })
 
