@@ -1,17 +1,20 @@
+import 'react-native-gesture-handler'
+
 import React, { useEffect } from 'react'
-import { View } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import SplashScreen from 'react-native-splash-screen'
 
-import CounterScreen from './scenes/counter'
+import Navigation from './navigations'
 
 const App = () => {
   useEffect(() => {
     SplashScreen.hide()
   }, [])
+
   return (
-    <View>
-      <CounterScreen />
-    </View>
+    <SafeAreaProvider>
+      <Navigation />
+    </SafeAreaProvider>
   )
 }
 
