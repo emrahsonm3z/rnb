@@ -383,7 +383,7 @@ config include in **package.json**
 ```
 "husky": {
   "hooks": {
-    "pre-commit": "lint-staged --allow-empty"
+    "pre-commit": "lint-staged"
   }
 },
 "lint-staged": {
@@ -394,4 +394,10 @@ config include in **package.json**
     "npm run format"
   ]
 }
+```
+
+## RENAME Project
+
+```
+npx react-native-rename <project name>
 ```
